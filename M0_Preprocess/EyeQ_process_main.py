@@ -32,7 +32,8 @@ def process(image_list, save_path):
             name_list.append(image_path.split('.')[0] + '.png')
             print(f"[M0] Preprocessed image saved to: {save_path + image_path.split('.')[0] + '.png'}")
         
-        except:
+        except Exception as e:
+            print(f"[M0] Error processing image: {image_path} - {e}")
             pass
 
     scale_list = [a*2/912 for a in radius_list]
