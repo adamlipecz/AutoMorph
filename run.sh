@@ -52,7 +52,7 @@ fi
 # Step 1 - Image Preprocessing
 # ----------------------------- #
 if [ $NO_PROCESS -eq 0 ]; then
-  echo "### Preprocess Start ###"
+  echo "### STEP 1 - Preprocess Start ###"
   cd M0_Preprocess
   python EyeQ_process_main.py
   cd ..
@@ -64,7 +64,7 @@ fi
 # Step 2 - Image Quality Assessment
 # ----------------------------- #
 if [ $NO_QUALITY -eq 0 ]; then
-  echo "### Image Quality Assessment ###"
+  echo "### STEP 2 - Image Quality Assessment ###"
   cd M1_Retinal_Image_quality_EyePACS
   sh test_outside.sh
   python merge_quality_assessment.py
@@ -77,7 +77,7 @@ fi
 # Step 3 - Segmentation Modules
 # ----------------------------- #
 if [ $NO_SEGMENTATION -eq 0 ]; then
-  echo "### Segmentation Modules ###"
+  echo "### STEP 3 - Segmentation Modules ###"
   
   cd M2_Vessel_seg
   sh test_outside.sh
@@ -98,7 +98,7 @@ fi
 # Step 4 - Feature Measurement
 # ----------------------------- #
 if [ $NO_FEATURE -eq 0 ]; then
-  echo "### Feature Measuring ###"
+  echo "### STEP 4 - Feature Measuring ###"
 
   cd M3_feature_zone/retipy/
   python create_datasets_disc_centred_B.py
